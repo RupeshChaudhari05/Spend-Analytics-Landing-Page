@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendInsight - Spend Analysis & Reporting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80">
+    <meta name="description" content="SpendInsight — Zero-setup spend analytics. Upload Excel, get AI-categorized insights and board-ready reports.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 240 10% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 240 10% 3.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 240 10% 3.9%;
+            --primary: 240 5.9% 10%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 240 4.8% 95.9%;
+            --secondary-foreground: 240 5.9% 10%;
+            --muted: 240 4.8% 95.9%;
+            --muted-foreground: 240 3.8% 46.1%;
+            --accent: 240 4.8% 95.9%;
+            --accent-foreground: 240 5.9% 10%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 240 5.9% 90%;
+            --input: 240 5.9% 90%;
+            --ring: 240 5.9% 10%;
+            --radius: 0.75rem;
+        }
+        
+        .dark {
+            --background: 240 10% 3.9%;
+            --foreground: 0 0% 98%;
+            --card: 240 10% 3.9%;
+            --card-foreground: 0 0% 98%;
+            --popover: 240 10% 3.9%;
+            --popover-foreground: 0 0% 98%;
+            --primary: 0 0% 98%;
+            --primary-foreground: 240 5.9% 10%;
+            --secondary: 240 3.7% 15.9%;
+            --secondary-foreground: 0 0% 98%;
+            --muted: 240 3.7% 15.9%;
+            --muted-foreground: 240 5% 64.9%;
+            --accent: 240 3.7% 15.9%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 240 3.7% 15.9%;
+            --input: 240 3.7% 15.9%;
+            --ring: 240 4.9% 83.9%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Keyboard focus visibility */
+        :focus {
+            outline: none;
+        }
+        :focus-visible {
+            outline: 3px solid rgba(59,130,246,0.85);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SpendInsight",
+      "url": "https://www.spendinsight.example",
+      "logo": "https://your-cdn.example/logo.png"
+    }
+    </script>
+</head>
+<body class="bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground rounded px-3 py-2 z-50" href="#main">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav role="navigation" aria-label="Main Navigation" class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+                <div class="h-8 w-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                SpendInsight
+            </div>
+
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#features" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
+                <a href="#customers" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Customers</a>
+                <a href="#pricing" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="h-9 w-9 rounded-md border border-input bg-transparent hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center">
+                    <svg class="sun h-4 w-4 hidden dark:flex" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon h-4 w-4 flex dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <a href="#" class="text-sm font-medium text-muted-foreground hover:text-foreground hidden sm:block">Log in</a>
+                <button aria-label="Get Started" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="w-full relative overflow-x-hidden">
+        <div class="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10 dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)]"></div>
+
+        <!-- Hero -->
+        <section class="container mx-auto max-w-7xl px-4 py-24 md:py-32">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="flex flex-col items-start space-y-8">
+                    <div class="inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none text-foreground bg-muted/50">
+                        <span class="flex h-2 w-2 rounded-full bg-green-500 mr-2"></span>
+                        New: Excel Import & AI Forecasting
+                    </div>
+
+                    <h1 class="text-4xl font-extrabold tracking-tight lg:text-7xl">
+                        Turn Excel sheets into <br class="hidden md:block"/>
+                        <span class="text-muted-foreground">instant insights.</span>
+                    </h1>
+
+                    <p class="max-w-[700px] text-lg text-muted-foreground leading-relaxed">
+                        Upload your invoices and spend data. Our AI automatically cleans, categorizes, and visualizes your financials in seconds.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 w-full">
+                        <button aria-label="Upload Excel File" class="inline-flex items-center justify-center rounded-md text-sm font-medium shadow transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                            Upload Excel File
+                        </button>
+                        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium shadow-sm transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+                            View Sample Report
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-4">
+                         <div class="flex -space-x-2">
+                             <div class="w-8 h-8 rounded-full border-2 border-background bg-zinc-400"></div>
+                             <div class="w-8 h-8 rounded-full border-2 border-background bg-zinc-500"></div>
+                             <div class="w-8 h-8 rounded-full border-2 border-background bg-zinc-600"></div>
+                         </div>
+                         <p class="text-xs text-muted-foreground font-medium">Trusted by 10,000+ finance teams</p>
+                    </div>
+                </div>
+
+                <!-- Dashboard Image -->
+                <div class="relative w-full perspective-1000 group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80" 
+                        srcset="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80 1200w" 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy"
+                        decoding="async"
+                        width="1200"
+                        height="800"
+                        alt="Interactive Spend Analytics Dashboard preview" 
+                        class="relative rounded-xl shadow-2xl border border-border w-full transform transition-transform hover:scale-[1.01]"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="container mx-auto max-w-7xl px-4 py-24">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Complete Spend Analysis</h2>
+                <p class="text-muted-foreground text-lg">From raw data to board-ready reports in three steps.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+                
+                <!-- Feature 1: Excel Upload -->
+                <div class="md:col-span-2 rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group">
+                    <div class="p-8 pb-0 relative z-20">
+                        <h3 class="text-2xl font-bold">Drag & Drop Excel Upload</h3>
+                        <p class="text-muted-foreground mt-2 max-w-sm">No complex integrations needed. Just drop your .xlsx or .csv files and let us handle the rest.</p>
+                    </div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1000&q=80" 
+                        loading="lazy"
+                        decoding="async"
+                        width="1000"
+                        height="650"
+                        alt="Excel upload interface" 
+                        class="absolute bottom-0 right-0 w-3/4 shadow-2xl rounded-tl-xl border-l border-t border-border group-hover:scale-105 transition-transform duration-500"
+                    />
+                </div>
+
+                <!-- Feature 2: AI Chart -->
+                <div class="md:row-span-2 rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group flex flex-col">
+                    <div class="p-8 pb-0 relative z-20">
+                        <h3 class="text-2xl font-bold">AI Anomaly Detection</h3>
+                        <p class="text-muted-foreground mt-2">Our engine automatically flags duplicate subscriptions and unusual spikes.</p>
+                    </div>
+                    <div class="mt-auto relative w-full h-64 overflow-hidden flex items-end justify-center">
+                        <img 
+                            src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=1200&q=80" 
+                            loading="lazy"
+                            decoding="async"
+                            width="1200"
+                            height="700"
+                            alt="AI anomaly chart" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                    </div>
+                </div>
+
+                <!-- Feature 3: Export Report -->
+                <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group">
+                    <div class="p-8 pb-0 relative z-20">
+                        <h3 class="text-xl font-bold">1-Click Export</h3>
+                        <p class="text-muted-foreground text-sm mt-1">PDF, Excel, or API.</p>
+                    </div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1581093808194-0d7f31a2c8a0?auto=format&fit=crop&w=1000&q=80" 
+                        loading="lazy"
+                        decoding="async"
+                        width="1000"
+                        height="600"
+                        alt="Export report options" 
+                        class="absolute bottom-[-20px] right-[-20px] w-2/3 shadow-xl rounded-tl-xl border-l border-t border-border group-hover:translate-x-[-10px] group-hover:translate-y-[-10px] transition-transform"
+                    />
+                </div>
+
+                <!-- Feature 4: Small Text -->
+                <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-8 flex flex-col justify-center items-center text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                    <p class="text-sm text-muted-foreground">Integrations with Xero, Quickbooks, and NetSuite</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Reviews / Testimonials -->
+        <section id="reviews" class="container mx-auto max-w-7xl px-4 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">What finance teams say</h2>
+                <p class="text-muted-foreground text-lg">Real results from real teams using SpendInsight.</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <blockquote class="rounded-xl border border-border bg-card p-6 text-card-foreground">
+                    <p class="text-sm leading-relaxed">“SpendInsight helped us reduce duplicate vendors and saved us over $200k in the first quarter.”</p>
+                    <footer class="mt-4 text-xs text-muted-foreground">— Sarah L., CFO</footer>
+                </blockquote>
+                <blockquote class="rounded-xl border border-border bg-card p-6 text-card-foreground">
+                    <p class="text-sm leading-relaxed">“Zero setup is not an exaggeration — we were analyzing spend in under an hour.”</p>
+                    <footer class="mt-4 text-xs text-muted-foreground">— Marcus T., Head of Procurement</footer>
+                </blockquote>
+                <blockquote class="rounded-xl border border-border bg-card p-6 text-card-foreground">
+                    <p class="text-sm leading-relaxed">“Actionable insights and easy exports — our board meetings have never been easier.”</p>
+                    <footer class="mt-4 text-xs text-muted-foreground">— Priya K., Finance Ops</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="container mx-auto max-w-5xl px-4 py-24">
+            <h2 class="text-3xl font-bold tracking-tight text-center mb-16">Simple Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6">
+                    <h3 class="font-semibold text-lg">Starter</h3>
+                    <div class="mt-4 flex items-baseline text-3xl font-bold">$0</div>
+                    <p class="text-sm text-muted-foreground mt-2">Up to 50 invoices/mo</p>
+                    <button class="mt-6 w-full inline-flex items-center justify-center rounded-md text-sm font-medium border border-input h-10 px-4 hover:bg-accent hover:text-accent-foreground transition-colors">Get Started</button>
+                </div>
+                <!-- Pro -->
+                <div class="rounded-xl border border-primary bg-card text-card-foreground shadow-md p-6 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>
+                    <h3 class="font-semibold text-lg">Growth</h3>
+                    <div class="mt-4 flex items-baseline text-3xl font-bold">$49<span class="text-sm font-normal text-muted-foreground">/mo</span></div>
+                    <p class="text-sm text-muted-foreground mt-2">Unlimited Uploads + AI</p>
+                    <button class="mt-6 w-full inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground h-10 px-4 hover:bg-primary/90 transition-colors">Start Free Trial</button>
+                </div>
+                <!-- Enterprise -->
+                <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6">
+                    <h3 class="font-semibold text-lg">Enterprise</h3>
+                    <div class="mt-4 flex items-baseline text-3xl font-bold">Custom</div>
+                    <p class="text-sm text-muted-foreground mt-2">SSO & Dedicated Support</p>
+                    <button class="mt-6 w-full inline-flex items-center justify-center rounded-md text-sm font-medium border border-input h-10 px-4 hover:bg-accent hover:text-accent-foreground transition-colors">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container mx-auto max-w-5xl px-4 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+                <p class="text-muted-foreground text-lg">Answers to common questions about security, setup and integrations.</p>
+            </div>
+            <div class="space-y-4">
+                <details class="rounded-xl border border-border bg-card p-6">
+                    <summary class="font-medium cursor-pointer">Is my data secure?</summary>
+                    <div class="mt-3 text-sm text-muted-foreground">We use industry-standard encryption in transit and at rest; SOC2 compliance is available on Enterprise plans.</div>
+                </details>
+                <details class="rounded-xl border border-border bg-card p-6">
+                    <summary class="font-medium cursor-pointer">How fast can I get started?</summary>
+                    <div class="mt-3 text-sm text-muted-foreground">Most teams can analyze their first file within 30–60 minutes thanks to our drag &amp; drop importer.</div>
+                </details>
+                <details class="rounded-xl border border-border bg-card p-6">
+                    <summary class="font-medium cursor-pointer">Do you offer integrations?</summary>
+                    <div class="mt-3 text-sm text-muted-foreground">Yes — we support Xero, QuickBooks, and NetSuite; plus a REST API for custom integrations.</div>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="container mx-auto max-w-7xl px-4 py-24">
+            <div class="rounded-3xl bg-primary text-primary-foreground px-6 py-24 text-center overflow-hidden relative">
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+                
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-6 relative z-10">Start analyzing your spend today.</h2>
+                <p class="max-w-2xl mx-auto text-primary-foreground/80 mb-10 text-lg relative z-10">
+                    Join 10,000+ finance leaders using SpendInsight to forecast budget and cut costs.
+                </p>
+                <button aria-label="Start Free Trial" class="relative z-10 inline-flex items-center justify-center rounded-md text-sm font-medium shadow-lg transition-colors bg-background text-foreground hover:bg-background/90 h-11 px-8 border border-border">
+                    Start Free Trial
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-muted/50">
+        <div class="container mx-auto max-w-7xl px-4 py-12 flex justify-between items-center text-sm text-muted-foreground">
+            <div>© 2023 SpendInsight Inc.</div>
+            <div class="flex gap-4">
+                <a href="#" rel="noopener noreferrer" class="hover:text-foreground">Privacy</a>
+                <a href="#" rel="noopener noreferrer" class="hover:text-foreground">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        // Initial Theme Check
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemTheme === 'dark')) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            const isDark = htmlElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use industry-standard encryption in transit and at rest; SOC2 compliance is available on Enterprise plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can I get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most teams can analyze their first file within 30–60 minutes thanks to our drag & drop importer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer integrations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — we support Xero, QuickBooks, and NetSuite; plus a REST API for custom integrations."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script>
+      // Dev helper: warn about images missing alt text when running locally
+      (function(){
+        try{
+          if(location.hostname === '127.0.0.1' || location.hostname === 'localhost'){
+            document.querySelectorAll('img').forEach(img => {
+              if(!img.alt || img.alt.trim() === ''){
+                console.warn('[Accessibility] Image missing alt text:', img);
+              }
+            });
+          }
+        }catch(e){/* ignore in production */}
+      })();
+    </script>
+</body>
+</html>
