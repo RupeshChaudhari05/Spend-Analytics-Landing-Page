@@ -228,17 +228,31 @@
         <!-- Features Grid -->
         <section id="features" class="container mx-auto max-w-7xl px-4 py-24">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight mb-4">Complete Spend Analysis</h2>
-                <p class="text-muted-foreground text-lg">From raw data to board-ready reports in three steps.</p>
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Complete Spend Analysis Platform</h2>
+                <p class="text-muted-foreground text-lg">Comprehensive procurement intelligence and spend visibility across your entire organization.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+            <!-- Primary Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px] mb-8">
                 
-                <!-- Feature 1: Excel Upload -->
+                <!-- Feature 1: Data Ingestion -->
                 <div class="md:col-span-2 rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group">
                     <div class="p-8 pb-0 relative z-20">
-                        <h3 class="text-2xl font-bold">Drag & Drop Excel Upload</h3>
-                        <p class="text-muted-foreground mt-2 max-w-sm">No complex integrations needed. Just drop your .xlsx or .csv files and let us handle the rest.</p>
+                        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                            Data Ingestion
+                        </div>
+                        <h3 class="text-2xl font-bold">Unified Data Collection</h3>
+                        <p class="text-muted-foreground mt-2 max-w-lg">Automatically consolidate spend data from multiple sources: Excel/CSV files, ERP systems (SAP, Oracle), accounting software (QuickBooks, Xero), and procurement platforms. Our AI-powered mapper recognizes 100+ field formats instantly.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Auto-detect formats: PO, invoices, receipts, credit card statements
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Real-time sync with 50+ financial systems
+                            </li>
+                        </ul>
                     </div>
                     <img 
                         src="https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1000&q=80" 
@@ -246,16 +260,33 @@
                         decoding="async"
                         width="1000"
                         height="650"
-                        alt="Excel upload interface" 
+                        alt="Data ingestion interface" 
                         class="absolute bottom-0 right-0 w-3/4 shadow-2xl rounded-tl-xl border-l border-t border-border group-hover:scale-105 transition-transform duration-500"
                     />
                 </div>
 
-                <!-- Feature 2: AI Chart -->
+                <!-- Feature 2: AI Classification -->
                 <div class="md:row-span-2 rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group flex flex-col">
                     <div class="p-8 pb-0 relative z-20">
-                        <h3 class="text-2xl font-bold">AI Anomaly Detection</h3>
-                        <p class="text-muted-foreground mt-2">Our engine automatically flags duplicate subscriptions and unusual spikes.</p>
+                        <div class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                            AI-Powered
+                        </div>
+                        <h3 class="text-2xl font-bold">Smart Classification & Categorization</h3>
+                        <p class="text-muted-foreground mt-2">ML models trained on 500M+ transactions automatically categorize spend by GL codes, departments, cost centers, and custom taxonomies. Achieves 98% accuracy without manual tagging.</p>
+                        <div class="mt-4 space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-muted-foreground">Vendor Deduplication</span>
+                                <span class="font-semibold text-primary">99.2%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-muted-foreground">Category Accuracy</span>
+                                <span class="font-semibold text-primary">98.1%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-muted-foreground">Anomaly Detection</span>
+                                <span class="font-semibold text-primary">95.7%</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-auto relative w-full h-64 overflow-hidden flex items-end justify-center">
                         <img 
@@ -264,17 +295,20 @@
                             decoding="async"
                             width="1200"
                             height="700"
-                            alt="AI anomaly chart" 
+                            alt="AI classification dashboard" 
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                     </div>
                 </div>
 
-                <!-- Feature 3: Export Report -->
+                <!-- Feature 3: Savings Opportunities -->
                 <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-0 overflow-hidden relative group">
                     <div class="p-8 pb-0 relative z-20">
-                        <h3 class="text-xl font-bold">1-Click Export</h3>
-                        <p class="text-muted-foreground text-sm mt-1">PDF, Excel, or API.</p>
+                        <div class="inline-flex items-center gap-2 bg-green-500/10 text-green-500 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                            Savings ID
+                        </div>
+                        <h3 class="text-xl font-bold">Cost Reduction Insights</h3>
+                        <p class="text-muted-foreground text-sm mt-2">Identifies duplicate vendors, maverick spending, contract leakage, and consolidation opportunities. Average customer saves 12-18% in Year 1.</p>
                     </div>
                     <img 
                         src="https://images.unsplash.com/photo-1581093808194-0d7f31a2c8a0?auto=format&fit=crop&w=1000&q=80" 
@@ -282,18 +316,135 @@
                         decoding="async"
                         width="1000"
                         height="600"
-                        alt="Export report options" 
+                        alt="Cost savings dashboard" 
                         class="absolute bottom-[-20px] right-[-20px] w-2/3 shadow-xl rounded-tl-xl border-l border-t border-border group-hover:translate-x-[-10px] group-hover:translate-y-[-10px] transition-transform"
                     />
                 </div>
 
-                <!-- Feature 4: Small Text -->
+                <!-- Feature 4: Integration Stats -->
                 <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-8 flex flex-col justify-center items-center text-center">
                     <div class="text-4xl font-bold text-primary mb-2">50+</div>
-                    <p class="text-sm text-muted-foreground">Integrations with Xero, Quickbooks, and NetSuite</p>
+                    <p class="text-sm text-muted-foreground mb-4">Pre-built Integrations</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-muted px-2 py-1 rounded">SAP</span>
+                        <span class="text-xs bg-muted px-2 py-1 rounded">Oracle</span>
+                        <span class="text-xs bg-muted px-2 py-1 rounded">QuickBooks</span>
+                        <span class="text-xs bg-muted px-2 py-1 rounded">Xero</span>
+                    </div>
                 </div>
 
             </div>
+
+            <!-- Advanced Analytics Features -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-center mb-8">Advanced Analytics Capabilities</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Supplier Risk Analysis -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Supplier Risk Scoring</h4>
+                        <p class="text-sm text-muted-foreground">Monitor financial health, delivery performance, and compliance risk across your vendor base. ESG scoring included.</p>
+                    </div>
+
+                    <!-- Spend Under Management -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Spend Under Management</h4>
+                        <p class="text-sm text-muted-foreground">Track contract coverage, maverick spend, and tail spend. Benchmark against industry peers (15+ verticals).</p>
+                    </div>
+
+                    <!-- Forecasting & Budgeting -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Predictive Forecasting</h4>
+                        <p class="text-sm text-muted-foreground">AI-powered spend forecasts with 94% accuracy. Budget variance analysis and automated alerts for overruns.</p>
+                    </div>
+
+                    <!-- Compliance & Audit -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Audit Trail & Compliance</h4>
+                        <p class="text-sm text-muted-foreground">Complete audit logs, SOX-compliant workflows, segregation of duties, and automated approval routing.</p>
+                    </div>
+
+                    <!-- Contract Management -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Contract Analytics</h4>
+                        <p class="text-sm text-muted-foreground">Track spend vs. contracts, identify leakage, monitor renewal dates, and analyze payment terms compliance.</p>
+                    </div>
+
+                    <!-- Tail Spend Management -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/10 text-yellow-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Tail Spend Optimization</h4>
+                        <p class="text-sm text-muted-foreground">Consolidate fragmented suppliers representing 80% of vendors but only 20% of spend. Unlock 5-15% savings.</p>
+                    </div>
+
+                    <!-- Category Intelligence -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Category Intelligence</h4>
+                        <p class="text-sm text-muted-foreground">Deep-dive analytics by spend category with market benchmarks, price indices, and sourcing recommendations.</p>
+                    </div>
+
+                    <!-- Executive Dashboards -->
+                    <div class="rounded-xl border border-border bg-card p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h4 class="font-semibold mb-2">Executive Reporting</h4>
+                        <p class="text-sm text-muted-foreground">Board-ready dashboards, custom KPI tracking, automated PDF reports, and PowerPoint export with your branding.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Key Metrics Section -->
+            <div class="mt-16 rounded-2xl bg-gradient-to-br from-primary/5 to-blue-500/5 p-8 border border-border">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold mb-2">Proven Results Across Industries</h3>
+                    <p class="text-muted-foreground">Real metrics from 10,000+ finance teams using SpendInsight</p>
+                </div>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary mb-2">18%</div>
+                        <p class="text-sm text-muted-foreground">Average Cost Savings</p>
+                        <p class="text-xs text-muted-foreground mt-1">Year 1</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary mb-2">75%</div>
+                        <p class="text-sm text-muted-foreground">Time Saved on Reporting</p>
+                        <p class="text-xs text-muted-foreground mt-1">vs. Manual Analysis</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary mb-2">3x</div>
+                        <p class="text-sm text-muted-foreground">Faster Decision Making</p>
+                        <p class="text-xs text-muted-foreground mt-1">Real-time Insights</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                        <p class="text-sm text-muted-foreground">Data Accuracy</p>
+                        <p class="text-xs text-muted-foreground mt-1">AI Classification</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- Reviews / Testimonials -->
