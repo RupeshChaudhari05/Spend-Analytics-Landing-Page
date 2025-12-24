@@ -254,15 +254,89 @@
                             </li>
                         </ul>
                     </div>
-                    <img 
-                        src="https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1000&q=80" 
-                        loading="lazy"
-                        decoding="async"
-                        width="1000"
-                        height="650"
-                        alt="Data ingestion interface" 
-                        class="absolute bottom-0 right-0 w-3/4 shadow-2xl rounded-tl-xl border-l border-t border-border group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <!-- Infographic: Data Flow -->
+                    <div class="absolute bottom-0 right-0 w-3/4 h-3/4 p-6 flex items-center justify-center">
+                        <svg viewBox="0 0 400 300" class="w-full h-full group-hover:scale-105 transition-transform duration-500">
+                            <!-- Database Icon -->
+                            <g transform="translate(40, 80)">
+                                <rect x="0" y="0" width="60" height="70" rx="8" fill="url(#grad1)" opacity="0.9"/>
+                                <path d="M10,20 L50,20 M10,35 L50,35 M10,50 L50,50" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                                <text x="30" y="90" text-anchor="middle" class="fill-muted-foreground" font-size="10" font-weight="600">Excel/CSV</text>
+                            </g>
+                            
+                            <!-- ERP Icon -->
+                            <g transform="translate(40, 180)">
+                                <circle cx="30" cy="35" r="30" fill="url(#grad2)" opacity="0.9"/>
+                                <path d="M20,25 L40,25 M20,35 L40,35 M20,45 L40,45" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                                <text x="30" y="85" text-anchor="middle" class="fill-muted-foreground" font-size="10" font-weight="600">ERP/API</text>
+                            </g>
+
+                            <!-- Arrow Flow -->
+                            <g opacity="0.7">
+                                <path d="M110,115 L180,150" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M110,215 L180,180" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <polygon points="180,150 185,145 185,155" fill="#3b82f6"/>
+                                <polygon points="180,180 185,175 185,185" fill="#3b82f6"/>
+                            </g>
+
+                            <!-- Central AI Processor -->
+                            <g transform="translate(180, 130)">
+                                <rect x="0" y="0" width="90" height="80" rx="12" fill="url(#grad4)" opacity="0.95"/>
+                                <circle cx="45" cy="25" r="12" fill="#fff" opacity="0.9"/>
+                                <path d="M40,25 L42,28 L50,20" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <text x="45" y="55" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">AI Engine</text>
+                                <text x="45" y="68" text-anchor="middle" fill="#e0e7ff" font-size="8">Processing</text>
+                            </g>
+
+                            <!-- Arrow to Output -->
+                            <g opacity="0.7">
+                                <path d="M280,165 L320,165" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <polygon points="320,165 315,160 315,170" fill="#3b82f6"/>
+                            </g>
+
+                            <!-- Dashboard Output -->
+                            <g transform="translate(320, 125)">
+                                <rect x="0" y="0" width="70" height="80" rx="10" fill="url(#grad5)" opacity="0.9"/>
+                                <rect x="10" y="15" width="50" height="8" rx="2" fill="#fff" opacity="0.4"/>
+                                <rect x="10" y="30" width="35" height="8" rx="2" fill="#fff" opacity="0.4"/>
+                                <rect x="10" y="45" width="45" height="8" rx="2" fill="#fff" opacity="0.4"/>
+                                <circle cx="20" cy="65" r="4" fill="#10b981"/>
+                                <circle cx="35" cy="65" r="4" fill="#3b82f6"/>
+                                <circle cx="50" cy="65" r="4" fill="#f59e0b"/>
+                                <text x="35" y="95" text-anchor="middle" class="fill-muted-foreground" font-size="10" font-weight="600">Insights</text>
+                            </g>
+
+                            <!-- Gradients -->
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
                 </div>
 
                 <!-- Feature 2: AI Classification -->
@@ -288,16 +362,74 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-auto relative w-full h-64 overflow-hidden flex items-end justify-center">
-                        <img 
-                            src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=1200&q=80" 
-                            loading="lazy"
-                            decoding="async"
-                            width="1200"
-                            height="700"
-                            alt="AI classification dashboard" 
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
+                    <!-- AI Classification Visualization -->
+                    <div class="mt-auto relative w-full h-64 overflow-hidden flex items-center justify-center p-8 bg-gradient-to-br from-blue-500/5 to-purple-500/5">
+                        <svg viewBox="0 0 300 200" class="w-full h-full">
+                            <!-- Neural Network Visualization -->
+                            <!-- Input Layer -->
+                            <circle cx="40" cy="50" r="12" fill="#3b82f6" opacity="0.3">
+                                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="40" cy="100" r="12" fill="#3b82f6" opacity="0.3">
+                                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="40" cy="150" r="12" fill="#3b82f6" opacity="0.3">
+                                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Hidden Layer -->
+                            <circle cx="120" cy="40" r="14" fill="#8b5cf6" opacity="0.4">
+                                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="120" cy="85" r="14" fill="#8b5cf6" opacity="0.4">
+                                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="120" cy="130" r="14" fill="#8b5cf6" opacity="0.4">
+                                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="120" cy="175" r="14" fill="#8b5cf6" opacity="0.4">
+                                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Output Layer (Categories) -->
+                            <circle cx="200" cy="50" r="16" fill="#10b981" opacity="0.5">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="110" r="16" fill="#10b981" opacity="0.5">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="170" r="16" fill="#10b981" opacity="0.5">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="1s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Connections -->
+                            <g opacity="0.2" stroke="#3b82f6" stroke-width="1">
+                                <line x1="52" y1="50" x2="106" y2="40"/>
+                                <line x1="52" y1="50" x2="106" y2="85"/>
+                                <line x1="52" y1="100" x2="106" y2="85"/>
+                                <line x1="52" y1="100" x2="106" y2="130"/>
+                                <line x1="52" y1="150" x2="106" y2="130"/>
+                                <line x1="52" y1="150" x2="106" y2="175"/>
+                                
+                                <line x1="134" y1="40" x2="184" y2="50"/>
+                                <line x1="134" y1="85" x2="184" y2="50"/>
+                                <line x1="134" y1="85" x2="184" y2="110"/>
+                                <line x1="134" y1="130" x2="184" y2="110"/>
+                                <line x1="134" y1="130" x2="184" y2="170"/>
+                                <line x1="134" y1="175" x2="184" y2="170"/>
+                            </g>
+
+                            <!-- Labels -->
+                            <text x="250" y="53" class="fill-current text-xs" font-weight="600">IT Services</text>
+                            <text x="250" y="113" class="fill-current text-xs" font-weight="600">Marketing</text>
+                            <text x="250" y="173" class="fill-current text-xs" font-weight="600">Operations</text>
+
+                            <!-- AI Brain Icon -->
+                            <g transform="translate(125, 10)">
+                                <path d="M0,0 Q10,-5 20,0 T40,0" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.4"/>
+                                <circle cx="20" cy="-3" r="3" fill="#8b5cf6"/>
+                            </g>
+                        </svg>
                     </div>
                 </div>
 
@@ -310,15 +442,56 @@
                         <h3 class="text-xl font-bold">Cost Reduction Insights</h3>
                         <p class="text-muted-foreground text-sm mt-2">Identifies duplicate vendors, maverick spending, contract leakage, and consolidation opportunities. Average customer saves 12-18% in Year 1.</p>
                     </div>
-                    <img 
-                        src="https://images.unsplash.com/photo-1581093808194-0d7f31a2c8a0?auto=format&fit=crop&w=1000&q=80" 
-                        loading="lazy"
-                        decoding="async"
-                        width="1000"
-                        height="600"
-                        alt="Cost savings dashboard" 
-                        class="absolute bottom-[-20px] right-[-20px] w-2/3 shadow-xl rounded-tl-xl border-l border-t border-border group-hover:translate-x-[-10px] group-hover:translate-y-[-10px] transition-transform"
-                    />
+                    <!-- Savings Chart Infographic -->
+                    <div class="absolute bottom-4 right-4 w-2/3 h-2/3 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <svg viewBox="0 0 200 180" class="w-full h-full">
+                            <!-- Chart Bars with Growth Animation -->
+                            <g transform="translate(20, 140)">
+                                <!-- Bar 1 -->
+                                <rect x="0" y="0" width="25" height="80" fill="#ef4444" opacity="0.3" rx="4"/>
+                                <rect x="0" y="0" width="25" height="80" fill="#ef4444" opacity="0.7" rx="4">
+                                    <animate attributeName="height" from="0" to="80" dur="1.5s" fill="freeze"/>
+                                    <animate attributeName="y" from="80" to="0" dur="1.5s" fill="freeze"/>
+                                </rect>
+                                <text x="12" y="95" text-anchor="middle" class="fill-muted-foreground" font-size="9">Before</text>
+                                
+                                <!-- Arrow Down -->
+                                <path d="M40,40 L55,40" stroke="#10b981" stroke-width="2" marker-end="url(#arrowgreen)"/>
+                                <text x="47" y="35" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">-18%</text>
+                                
+                                <!-- Bar 2 -->
+                                <rect x="70" y="15" width="25" height="65" fill="#10b981" opacity="0.3" rx="4"/>
+                                <rect x="70" y="15" width="25" height="65" fill="#10b981" opacity="0.8" rx="4">
+                                    <animate attributeName="height" from="0" to="65" dur="1.5s" begin="0.5s" fill="freeze"/>
+                                    <animate attributeName="y" from="80" to="15" dur="1.5s" begin="0.5s" fill="freeze"/>
+                                </rect>
+                                <text x="82" y="95" text-anchor="middle" class="fill-muted-foreground" font-size="9">After</text>
+                            </g>
+
+                            <!-- Money Saved Icon -->
+                            <g transform="translate(130, 30)">
+                                <circle cx="25" cy="25" r="24" fill="#10b981" opacity="0.15"/>
+                                <circle cx="25" cy="25" r="18" fill="#10b981" opacity="0.25"/>
+                                <text x="25" y="32" text-anchor="middle" fill="#10b981" font-size="20" font-weight="700">$</text>
+                                <text x="25" y="65" text-anchor="middle" class="fill-green-600" font-size="11" font-weight="700">Saved</text>
+                            </g>
+
+                            <!-- Percentage Badge -->
+                            <g transform="translate(10, 10)">
+                                <rect x="0" y="0" width="60" height="25" rx="12" fill="#10b981" opacity="0.2"/>
+                                <text x="30" y="17" text-anchor="middle" fill="#10b981" font-size="14" font-weight="700">12-18%</text>
+                            </g>
+
+                            <!-- Trend Line -->
+                            <path d="M20,100 Q80,60 140,40" stroke="#10b981" stroke-width="2" fill="none" opacity="0.4" stroke-dasharray="4,4"/>
+
+                            <defs>
+                                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
                 </div>
 
                 <!-- Feature 4: Integration Stats -->
